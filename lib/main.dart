@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
-import 'features/file_upload/presentation/pages/file_upload_page.dart';
+import 'core/theme/app_theme.dart';
+import 'features/statement/presentation/pages/pocketly_page.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+/// Starts the Pocketly application.
+void main() => runApp(const PocketlyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+/// Application shell with the Pocketly light and dark themes.
+class PocketlyApp extends StatelessWidget {
+  /// Creates the app shell.
+  const PocketlyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Finance Maya',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const FileUploadPage(),
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp(
+        title: 'Pocketly',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        darkTheme: AppTheme.dark,
+        themeMode: ThemeMode.system,
+        home: const PocketlyPage(),
+      );
 }
